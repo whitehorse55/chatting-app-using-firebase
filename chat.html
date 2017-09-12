@@ -1,0 +1,48 @@
+<!--
+  Generated template for the ChatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<!--
+   npm install angularfire2 firebase --save 
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>chat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+   <div id="chat_message">
+      <div class="message" *ngFor = "let message of messages" >
+          <div [class]="message.username == username ? 'inner_message messageLeft' : 'inner_message messageRight'">
+            <div class="username">{{message.username}}</div>
+            <div class="message">{{message.message}}</div>
+          </div>
+      </div>
+   </div>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <div id="footer">
+        <div class="elem">
+          <ion-input type="text" [(ngModel)]="message">
+          </ion-input>
+        </div>
+
+        <div class="elem">
+            <button ion-button icon-only (click)="sendmessage()">
+              <ion-icon name="send"></ion-icon>
+            </button>
+        </div>
+     </div>
+  </ion-toolbar>
+</ion-footer>
